@@ -1,0 +1,43 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+body {
+  background-color: #ffffff;
+  color: #000000;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+/* navbar and flash message styling */
+nav {
+  display: flex;
+  justify-content: space-around;
+  padding: 12px 25px;
+  background: #000000;
+  margin-bottom: 20px;
+}
+nav a {
+  text-decoration: none;
+  color: #ffffff;
+  margin-left: 20px;
+  font-weight: bold;
+}
+.container .alert {
+  padding: 6px 12px;
+  color: white;
+  font-weight: bold;
+  width: 50%;
+  margin: 10px auto;
+  border-radius: 3px;
+}
+.container .alert.danger {
+  background: red;
+}
+.container .alert.success {
+  background: green;
+}
+/*  */
+footer {
+  margin-top: 10px;
+  text-align: center;
+}
