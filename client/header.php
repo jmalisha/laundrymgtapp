@@ -1,6 +1,3 @@
-<?php
-define('CSS_PATH', '../styles/css/'); //define CSS path 
-?>
 <!DOCTYPE html>
 <html lang="en">
 
