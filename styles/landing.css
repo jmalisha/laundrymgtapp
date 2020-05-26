@@ -14,7 +14,9 @@
   justify-content: center;
   align-items: center;
   color: white;
-  background: -webkit-linear-gradient(-140deg, rgba(0, 0, 0, 0.5), green);
+  /* background-image: linear-gradient(147deg, ##fe8a39 0%, #fd3838 74%); */
+
+  background: -webkit-linear-gradient(-140deg, rgba(0, 0, 0, 0.5), #fd3838);
   z-index: 5;
 }
 .overlay {
@@ -57,10 +59,10 @@
   transition: 0.2s;
 }
 .landing button:first-child a:hover {
-  background: green;
+  background: #fe8a39;
 }
 .landing button:nth-child(2) a:hover {
-  background: green;
+  background: #fe8a39;
 }
 .container .contact-info {
   /* position: fixed;
