@@ -1,0 +1,108 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.landing {
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  padding: 50px;
+  /* margin-bottom: 370px; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background: -webkit-linear-gradient(-140deg, rgba(0, 0, 0, 0.5), green);
+  z-index: 5;
+}
+.overlay {
+  background: url("https://images.unsplash.com/photo-1576109135919-aa9bf1e6a975?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: -3;
+}
+.landing h1 {
+  font-size: 3em;
+  font-weight: bolder;
+  margin: 10px;
+  text-align: center;
+}
+.landing p {
+  font-size: 1.2em;
+  font-style: italic;
+  margin-bottom: 100px;
+}
+.landing button {
+  border: none;
+  background: none;
+}
+.landing button a {
+  text-decoration: none;
+  font-size: 1.5em;
+  font-weight: bolder;
+  padding: 8px 50px;
+  color: white;
+}
+.landing button:first-child a {
+  border: 0.5px solid white;
+}
+.landing button:nth-child(2) a {
+  border: 0.5px solid white;
+  transition: 0.2s;
+}
+.landing button:first-child a:hover {
+  background: green;
+}
+.landing button:nth-child(2) a:hover {
+  background: green;
+}
+.container .contact-info {
+  /* position: fixed;
+      bottom: 0; */
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+/* form  styling */
+.container .contact-info .form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;
+}
+.container .contact-info .form form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 5px;
+}
+.container .contact-info .form input,
+textarea {
+  border: none;
+  min-width: 400px;
+  padding: 12px 18px;
+  box-shadow: 1px 0px 5px 0px rgba(0, 0, 0, 0.3);
+  margin: 10px;
+}
+.container .contact-info .form button {
+  border: none;
+  padding: 20px 100px;
+  background: none;
+  border-bottom: 5px solid greenyellow;
+  box-shadow: 1px 0px 5px 0px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+.container .contact-info .form button:hover {
+  background: greenyellow;
+}

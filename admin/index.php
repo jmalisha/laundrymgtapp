@@ -1,3 +1,12 @@
 <?php include_once('./header.php') ?>
-admin page
+<div class="container">
+    <?php include('./pages/laundries.php') ?>
+    <?php include('./pages/laundries.php') ?>
+    <?php include('./pages/laundries.php') ?>
+    <?php include('./pages/laundries.php') ?>
+    <?php include('./pages/laundries.php') ?>
+    <?php include('./pages/laundries.php') ?>
+    <?php include('./pages/laundries.php') ?>
+
+</div>
 <?php include_once('./footer.php') ?>

@@ -10,6 +10,8 @@ define('CSS_PATH', '../styles/css/'); //define CSS path
     <title>Laundry Mgt App</title>
     <link rel="stylesheet" href="../styles/app.css" type="text/css">
     <link rel="stylesheet" href="../styles/client/client.css" type="text/css">
+    <link rel="stylesheet" href="../styles/admin/laundries.css" type="text/css">
+
 </head>
 
 <body>
