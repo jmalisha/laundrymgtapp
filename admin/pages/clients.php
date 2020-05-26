@@ -14,8 +14,8 @@
     <nav>
         <a href="/LaundryMgtApp">ADMIN</a>
         <div>
-            <a href="/laundries">Laundries</a>
-            <a href="/register">Clients</a>
+            <a href="/LaundryMgtApp/admin">Laundries</a>
+            <a href="/LaundryMgtApp/admin/pages/clients.php">Clients</a>
             <a href="/logout">Logout</a>
         </div>
     </nav>
