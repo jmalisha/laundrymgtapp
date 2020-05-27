@@ -1,26 +1,54 @@
+<?php
+require_once('../connection.php');
+$sql = "SELECT client.username, client.phone, client.email, client.laundrycompleted, laundry.date, laundry.laundrystatus, laundry.description FROM `laundry` INNER JOIN client ON client.clientID = laundry.laundryID";
+$result = mysqli_query($conn, $sql);
+?>
 <?php include_once('./header.php') ?>
 <div class="container">
     <h1 style="text-align:center">Laundries</h1>
     <br />
-    <div class="wrapper">
-        <div class="wrapper-item">
-            <div class="item-img">
-                <div class="content">
-                    <h2 class="content-title" style="color: white">John Doe</h2>
-                    <p class="content-date" style="color: white">Phone :0732456798</p>
-                    <p class="content-date" style="color: white">email :john@doe.com</p>
-                    <p class="content-date" style="color: white">laundries completed : 23</p>
+    <?php
+    if (mysqli_num_rows($result) > 0) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            $clientName =  $row['username'];
+            $clientPhone =  $row['phone'];
+            $clientEmail =  $row['email'];
+            $laundryCompleted =  $row['laundrycompleted'];
+            $laundryDate =  $row['date'];
+            $laundryStatus = $row['laundrystatus'];
+            $desc =  $row['description'];
+    ?>
+            <div class="wrapper">
+                <div class="wrapper-item">
+                    <div class="item-img">
+                        <div class="content">
+                            <h2 class="content-title" style="color: white"><?php echo $clientName ?></h2>
+                            <p class="content-date" style="color: white">Phone : 0<?php echo $clientPhone ?></p>
+                            <p class="content-date" style="color: white">email :<?php echo $clientEmail ?></p>
+                            <p class="content-date" style="color: white">laundries completed : <?php echo $laundryCompleted ?></p>
+                        </div>
+                    </div>
+                    <div class="content-wrapper">
+                        <span class="content-date">Laundry done on <?php echo $laundryDate ?></span>
+                        <div class="content-title"><?php echo $laundryStatus ?></div>
+                        <div class="content-text"><?php echo $desc ?></div>
+                        <a href="#" class="content-button">Edit Laundry description Data</a>
+                    </div>
                 </div>
             </div>
-            <div class="content-wrapper">
-                <span class="content-date">Laundry done on 26 December 2019</span>
-                <div class="content-title">in progress</div>
-                <div class="content-text">4-tshirts, 4gowns, 3 blankets, 7 trousers, 10 bedsheets </div>
-                <a href="#" class="content-button">Edit Laundry description Data</a>
-            </div>
+            <br />
+        <?php
+        }
+    } else { ?>
+        <div class="clientcontainer">
+            <p>
+                No Laundry data found 😅.
+            </p>
+            <p>
+                The laundry data will be visible to you once clients start their laundry services.
+            </p>
         </div>
-    </div>
-    <br />
+    <?php } ?>
 
 </div>
 <?php include_once('./footer.php') ?>

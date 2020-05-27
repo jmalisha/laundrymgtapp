@@ -76,8 +76,17 @@ $userResult = mysqli_query($conn, $userSql);
                     </div>
                 </div>
             </div>
-    <?php }
-    } ?>
+        <?php }
+    } else { ?>
+        <div class="clientcontainer">
+            <p>
+                No Client data found 😅.
+            </p>
+            <p>
+                The client data will be visible to you once clients start their laundry services.
+            </p>
+        </div>
+    <?php } ?>
     <br />
     <?php include('./footer.php') ?>
 </body>
