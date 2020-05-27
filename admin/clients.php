@@ -1,10 +1,8 @@
 <?php
 require_once('../connection.php');
 // select data from db
-$userSql = "SELECT client.laundrycompleted, client.username, client.phone, client.email from client WHERE client.clientID = 1";
-$laundrySql = "SELECT laundry.laundryID, laundry.date, laundry.description FROM `laundry` WHERE laundry.clientID = 1";
+$userSql = "SELECT client.clientID, client.laundrycompleted, client.username, client.phone, client.email from client";
 $userResult = mysqli_query($conn, $userSql);
-$laundryResult = mysqli_query($conn, $laundrySql);
 
 ?>
 <!DOCTYPE html>
@@ -33,6 +31,7 @@ $laundryResult = mysqli_query($conn, $laundrySql);
     <?php
     if (mysqli_num_rows($userResult) > 0) {
         while ($row = mysqli_fetch_assoc($userResult)) {
+            $clientID = $row['clientID'];
             $laundryCompleted =  $row['laundrycompleted'];
             $clientName =  $row['username'];
             $clientPhone =  $row['phone'];
@@ -48,36 +47,39 @@ $laundryResult = mysqli_query($conn, $laundrySql);
                             <p class="content-date">laundries completed : <?php echo $laundryCompleted ?></p>
                         </div>
                     </div>
-            <?php }
+                    <div class="content-wrapper">
+                        <div class="content-title">Laundry list</div>
+                        <div class="content-text">
+                            <!--  -->
+                            <?php
+                            // query
+                            $laundrySql = "SELECT laundry.laundryID, laundry.date, laundry.description FROM `laundry` WHERE laundry.clientID = $clientID";
+                            $laundryResult = mysqli_query($conn, $laundrySql);
+                            if (mysqli_num_rows($laundryResult) > 0) {
+                                while ($row = mysqli_fetch_assoc($laundryResult)) {
+                                    $laundryID =  $row['laundryID'];
+                                    $laundryDate =  $row['date'];
+                                    $desc =  $row['description'];
+                            ?>
+                                    <div class="laundry">
+                                        <div id="header">
+                                            <div class="content-index"><?php echo $laundryID ?></div>
+                                            <div class="content-value"><?php echo $laundryDate ?></div>
+                                        </div>
+                                        <div class="content-key"><?php echo $desc ?></div>
+                                    </div>
+                            <?php }
+                            } ?>
+                            <!--  -->
+                            <!--  -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+    <?php }
     } ?>
-            <div class="content-wrapper">
-                <div class="content-title">Laundry list</div>
-                <div class="content-text">
-                    <!--  -->
-                    <?php
-                    if (mysqli_num_rows($laundryResult) > 0) {
-                        while ($row = mysqli_fetch_assoc($laundryResult)) {
-                            $laundryID =  $row['laundryID'];
-                            $laundryDate =  $row['date'];
-                            $desc =  $row['description'];
-                    ?>
-                            <div class="laundry">
-                                <div id="header">
-                                    <div class="content-index"><?php echo $laundryID ?></div>
-                                    <div class="content-value"><?php echo $laundryDate ?></div>
-                                </div>
-                                <div class="content-key"><?php echo $desc ?></div>
-                            </div>
-                    <?php }
-                    } ?>
-                    <!--  -->
-                    <!--  -->
-                </div>
-            </div>
-                </div>
-            </div>
-            <br />
-            <?php include('./footer.php') ?>
+    <br />
+    <?php include('./footer.php') ?>
 </body>
 
 </html>
