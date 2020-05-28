@@ -16,7 +16,7 @@
         <div class="landing">
             <h1>Welcome to Executive Laundry</h1>
             <p>
-                A Personal and Professional Cleaning.
+                A Personal and Professional Cleaning service.
             </p>
             <div class="button-group">
                 <button><a href="/laundrymgtapp/client/register.php">Signup</a></button>

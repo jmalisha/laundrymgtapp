@@ -1,3 +1,6 @@
+* {
+  box-sizing: border-box;
+}
 .container {
   display: flex;
   flex-direction: column;
@@ -16,7 +19,11 @@
   color: white;
   /* background-image: linear-gradient(147deg, ##fe8a39 0%, #fd3838 74%); */
 
-  background: -webkit-linear-gradient(-140deg, rgba(0, 0, 0, 0.5), #fd3838);
+  background: -webkit-linear-gradient(
+    -240deg,
+    rgba(0, 0, 0, 0.9) 97%,
+    #fe8a39 10%
+  );
   z-index: 5;
 }
 .overlay {
@@ -50,6 +57,7 @@
   font-weight: bolder;
   padding: 8px 50px;
   color: white;
+  transition: 0.2s;
 }
 .landing button:first-child a {
   border: 0.5px solid white;
@@ -60,9 +68,11 @@
 }
 .landing button:first-child a:hover {
   background: #fe8a39;
+  border: none;
 }
 .landing button:nth-child(2) a:hover {
   background: #fe8a39;
+  border: none;
 }
 .container .contact-info {
   /* position: fixed;
@@ -72,6 +82,7 @@
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
+  padding: 100px;
 }
 /* form  styling */
 .container .contact-info .form {
@@ -101,12 +112,15 @@ textarea {
   border: none;
   padding: 20px 100px;
   background: none;
-  border-bottom: 5px solid greenyellow;
+  border: 1px solid #000000;
   box-shadow: 1px 0px 5px 0px rgba(0, 0, 0, 0.3);
   cursor: pointer;
+  transition: all 0.5s;
 }
 .container .contact-info .form button:hover {
-  background: greenyellow;
+  background: #fe8a39;
+  color: #ffffff;
+  border: none;
 }
 /* admin link */
 #adminLink {
