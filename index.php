@@ -19,8 +19,8 @@
                 A Personal and Professional Cleaning.
             </p>
             <div class="button-group">
-                <button><a href="/register">Signup</a></button>
-                <button><a href="/login">Login</a></button>
+                <button><a href="/laundrymgtapp/client/register.php">Signup</a></button>
+                <button><a href="/laundrymgtapp/client/login.php">Login</a></button>
                 <!-- <button>
                     <a href="">logged in as ...</a>
                 </button> -->
