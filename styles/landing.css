@@ -108,3 +108,11 @@ textarea {
 .container .contact-info .form button:hover {
   background: greenyellow;
 }
+/* admin link */
+#adminLink {
+  text-align: center;
+}
+#adminLink a {
+  text-decoration: none;
+  color: #fe8a39;
+}
