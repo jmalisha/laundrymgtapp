@@ -7,6 +7,7 @@
     <title>Laundry Mgt App</title>
     <link rel="stylesheet" href="../styles/app.css" type="text/css">
     <link rel="stylesheet" href="../styles/client/client.css" type="text/css">
+    <link rel="stylesheet" href="../styles/client/login.css" type="text/css">
     <link rel="stylesheet" href="../styles/admin/laundries.css" type="text/css">
 
 </head>
