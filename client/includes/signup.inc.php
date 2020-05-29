@@ -60,7 +60,7 @@ if (isset($_POST['signup_submit'])) {
                     $hashedPwd = password_hash($password, PASSWORD_DEFAULT);
                     mysqli_stmt_bind_param($stmt, 'ssss', $username, $email, $phone, $hashedPwd);
                     mysqli_stmt_execute($stmt);
-                    header('Location:../register.php?register=success');
+                    header('Location:../login.php?register=success');
                     exit();
                 }
             }

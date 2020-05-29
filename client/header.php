@@ -1,6 +1,4 @@
-<?php
-session_start();
-?>
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,6 +10,7 @@ session_start();
     <link rel="stylesheet" href="../styles/client/client.css" type="text/css">
     <link rel="stylesheet" href="../styles/client/login.css" type="text/css">
     <link rel="stylesheet" href="../styles/admin/laundries.css" type="text/css">
+    <link rel="stylesheet" href="../styles/landing.css" type="text/css">
 
 </head>
 
@@ -19,9 +18,13 @@ session_start();
     <nav>
         <a href="/LaundryMgtApp">LaundryMgtApp</a>
         <div>
-            <a href="/register">Signup</a>
-            <a href="/login">Login</a>
-            <a href="">logged in as ...</a>
-            <a href="/logout">Logout</a>
+            <?php if (isset($_SESSION['clientID'])) { ?>
+                <form id="logoutForm" method="post" action="includes/logout.inc.php">
+                    <button id="logoutbtn" type="submit" name="logout-submit">logout</a>
+                </form>
+            <?php } else { ?>
+                <a href="/register">Signup</a>
+                <a href="/login">Login</a>
+            <?php } ?>
         </div>
     </nav>

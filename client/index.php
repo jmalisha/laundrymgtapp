@@ -1,9 +1,9 @@
-<?php include('./header.php') ?>
 <?php
+require('./header.php');
 require_once('../connection.php');
 
 // select all laundry data for the client
-$laundrySql = "SELECT laundry.date, laundry.laundrystatus, laundry.description,client.laundrycompleted, admin.adminName, admin.phone FROM ((`laundry` INNER JOIN client ON client.clientID = laundry.laundryID) INNER JOIN admin ON admin.adminID = laundry.adminID) WHERE laundry.clientID = 1";
+$laundrySql = "SELECT laundry.date, laundry.laundrystatus, laundry.description,client.laundrycompleted, admin.adminName, admin.phone FROM ((`laundry` INNER JOIN client ON client.clientID = laundry.laundryID) INNER JOIN admin ON admin.adminID = laundry.adminID) WHERE laundry.clientID =" . $_SESSION['clientID'];
 $laundryResult = mysqli_query($conn, $laundrySql);
 ?>
 <!--  -->

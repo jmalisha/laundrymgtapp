@@ -1,5 +1,4 @@
 <?php
-
 if (isset($_GET['login_submit'])) {
     // add database
     require('../../connection.php');
@@ -28,8 +27,9 @@ if (isset($_GET['login_submit'])) {
                     header('Location:../login.php?error=wrongpassword');
                     exit();
                 } else if ($pwdCheck == true) {
+                    session_start();
                     $_SESSION['clientID'] = $row['clientID'];
-                    header('Location:../login.php?login=success ');
+                    header('Location:../index.php?login=success');
                     exit();
                 } else {
                     header('Location:../login.php?error=wrongpassword');

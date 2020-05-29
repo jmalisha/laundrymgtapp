@@ -58,6 +58,18 @@
   padding: 8px 50px;
   color: white;
   transition: 0.2s;
+  cursor: pointer;
+}
+#logoutForm button {
+  border: none;
+  background: none;
+  text-decoration: none;
+  font-size: 1.1em;
+  font-weight: bolder;
+  padding: 8px 50px;
+  color: white;
+  transition: 0.2s;
+  cursor: pointer;
 }
 .landing button:first-child a {
   border: 0.5px solid white;
