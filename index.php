@@ -30,8 +30,7 @@
         <div class="contact-info">
             <div class="form">
                 <h2>Contact Us</h2>
-                <form>
-                    <input type="email" placeholder="email" />
+                <form action="mailto:joycemalisha22@gmail.com" method="get" enctype="text/plain">
                     <textarea rows="3" placeholder="message"></textarea>
                     <button type="submit">Send</button>
                 </form>

@@ -8,7 +8,7 @@
             <input type="tel" placeholder="Phone number" name="phone" />
             <input type="password" placeholder="Password" name="password" />
             <input type="password" placeholder="Repeat Password" name="rpassword" />
-            <button type="submit" name="signup_submit"> Sign in </button>
+            <button type="submit" name="signup_submit"> Sign Up </button>
             <a href="/LaundryMgtApp/client/login.php">
                 <p> Already Registered? Login </p>
             </a>
