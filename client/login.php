@@ -3,7 +3,7 @@
     <div class="form-wrap">
         <h2>Login</h2>
         <form class="form" method="GET" action="includes/login.inc.php">
-            <input type="text" placeholder="Username" name="username" />
+            <input type="text" placeholder="Username or email" name="username" />
             <input type="password" placeholder="Password" name="password" />
             <button type="submit" name="login_submit"> Sign in </button>
             <a href="/LaundryMgtApp/client/register.php">

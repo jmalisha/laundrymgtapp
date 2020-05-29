@@ -1,3 +1,4 @@
+<?php include('./header.php') ?>
 <?php
 require_once('../connection.php');
 
@@ -6,7 +7,6 @@ $laundrySql = "SELECT laundry.date, laundry.laundrystatus, laundry.description,c
 $laundryResult = mysqli_query($conn, $laundrySql);
 ?>
 <!--  -->
-<?php include('./header.php') ?>
 <!--  -->
 <?php
 if (mysqli_num_rows($laundryResult) > 0) {
