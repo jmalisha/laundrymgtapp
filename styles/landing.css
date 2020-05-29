@@ -142,3 +142,8 @@ textarea {
   text-decoration: none;
   color: #fe8a39;
 }
+/* auth error and success */
+.authError {
+  color: red;
+  text-align: center;
+}
