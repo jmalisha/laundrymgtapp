@@ -4,7 +4,7 @@ if (!isset($_SESSION['adminID'])) {
     die();
 }
 require_once('../connection.php');
-$sql = "SELECT client.username, client.phone, client.email, client.laundrycompleted, laundry.date, laundry.laundrystatus, laundry.description FROM `laundry` INNER JOIN client ON laundry.clientID = client.clientID ORDER BY laundry.date DESC";
+$sql = "SELECT laundry.clientID, laundry.laundryID, client.username, client.phone, client.email, client.laundrycompleted, laundry.date, laundry.laundrystatus, laundry.description FROM `laundry` INNER JOIN client ON laundry.clientID = client.clientID ORDER BY laundry.date DESC";
 $result = mysqli_query($conn, $sql);
 ?>
 <div class="container">
@@ -13,6 +13,8 @@ $result = mysqli_query($conn, $sql);
     <?php
     if (mysqli_num_rows($result) > 0) {
         while ($row = mysqli_fetch_assoc($result)) {
+            $clientID =  $row['clientID'];
+            $laundryID =  $row['laundryID'];
             $clientName =  $row['username'];
             $clientPhone =  $row['phone'];
             $clientEmail =  $row['email'];
@@ -37,9 +39,11 @@ $result = mysqli_query($conn, $sql);
                         <div class="content-text"><?php echo $desc ?></div>
                         <?php
                         if (!($laundryStatus == 'complete')) { ?>
-                            <a href="#" class="content-button">
-                                Edit Laundry status
-                            </a>
+                            <form method="post" action="includes/updateLaundry.inc.php?clientID=<?php echo $clientID ?>&laundryID=<?php echo $laundryID ?>">
+                                <button style="border: none; cursor: pointer" type="submit" name="status_submit" class="content-button">
+                                    complete Laundry
+                                </button>
+                            </form>
                         <?php } ?>
                     </div>
                 </div>
