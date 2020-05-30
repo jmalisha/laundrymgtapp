@@ -35,7 +35,7 @@ if (isset($_POST['signup_submit'])) {
         header('Location: ../register.php?error=passwordcheck&uid=' . $adminName . "&mail=" . $email);
         exit();
     } else {
-        $sql = 'SELECT adminName FROM client WHERE adminName=?';
+        $sql = 'SELECT adminName FROM admin WHERE adminName=?';
         $stmt = mysqli_stmt_init($conn);
         if (!mysqli_stmt_prepare($stmt, $sql)) {
             header('Location:../register.php?error=sqlerror');
@@ -50,7 +50,7 @@ if (isset($_POST['signup_submit'])) {
                 exit();
             } else {
                 // insert userdata to db
-                $sql = "INSERT INTO client (adminName, email, phone, password) VALUES (?,?,?,?)";
+                $sql = "INSERT INTO admin (adminName, email, phone, password) VALUES (?,?,?,?)";
                 $stmt = mysqli_stmt_init($conn);
                 if (!mysqli_stmt_prepare($stmt, $sql)) {
                     header('Location:../register.php?error=sqlerror');
