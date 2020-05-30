@@ -35,7 +35,12 @@ $result = mysqli_query($conn, $sql);
                         <span class="content-date">Laundry done on <?php echo $laundryDate ?></span>
                         <div class="content-title"><?php echo $laundryStatus ?></div>
                         <div class="content-text"><?php echo $desc ?></div>
-                        <a href="#" class="content-button">Edit Laundry description Data</a>
+                        <?php
+                        if (!($laundryStatus == 'complete')) { ?>
+                            <a href="#" class="content-button">
+                                Edit Laundry status
+                            </a>
+                        <?php } ?>
                     </div>
                 </div>
             </div>
