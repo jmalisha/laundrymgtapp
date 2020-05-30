@@ -2,14 +2,14 @@
 <div class="form-container">
     <div class="form-wrap">
         <h2>Login</h2>
-        <div class="form">
-            <input type="text" placeholder="Username" name="un" />
-            <input type="password" placeholder="Password" name="pw" />
-            <button> Sign in </button>
+        <form class="form" method="GET" action="includes/login.inc.php">
+            <input type="text" placeholder="Username" name="username" />
+            <input type="password" placeholder="Password" name="password" />
+            <button type="submit" name="login_submit"> Sign in </button>
             <a href="/LaundryMgtApp/admin/register.php">
                 <p> Don't have an account? Register </p>
             </a>
-        </div>
+        </form>
     </div>
 </div>
 <?php include_once("./footer.php") ?>
