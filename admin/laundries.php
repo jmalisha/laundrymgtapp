@@ -1,9 +1,9 @@
+<?php require('./header.php'); ?>
 <?php
 require_once('../connection.php');
 $sql = "SELECT client.username, client.phone, client.email, client.laundrycompleted, laundry.date, laundry.laundrystatus, laundry.description FROM `laundry` INNER JOIN client ON client.clientID = laundry.laundryID";
 $result = mysqli_query($conn, $sql);
 ?>
-<?php include_once('./header.php') ?>
 <div class="container">
     <h1 style="text-align:center">Laundries</h1>
     <br />

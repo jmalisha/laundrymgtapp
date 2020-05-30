@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once('../connection.php');
 // select data from db
 $userSql = "SELECT client.clientID, client.laundrycompleted, client.username, client.phone, client.email from client";
@@ -13,6 +14,9 @@ $userResult = mysqli_query($conn, $userSql);
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Admin</title>
     <link rel="stylesheet" type="text/css" href="../styles/app.css" />
+    <link rel="stylesheet" type="text/css" href="../styles/landing.css" />
+    <link rel="stylesheet" type="text/css" href="../styles/client/login.css" />
+    <link rel="stylesheet" type="text/css" href="../styles/client/client.css" />
     <link rel="stylesheet" type="text/css" href="../styles/admin/navbar.css" />
     <link rel="stylesheet" type="text/css" href="../styles/admin/client.css" />
 </head>
@@ -23,7 +27,14 @@ $userResult = mysqli_query($conn, $userSql);
         <div>
             <a href="/LaundryMgtApp/admin/laundries.php">Laundries</a>
             <a href="/LaundryMgtApp/admin/clients.php">Clients</a>
-            <a href="/logout">Logout</a>
+            <?php if (isset($_SESSION['adminID'])) { ?>
+                <form id="logoutForm" method="post" action="includes/logout.inc.php">
+                    <button id="logoutbtn" type="submit" name="logout-submit">logout</a>
+                </form>
+            <?php } else { ?>
+                <a href="/register">Signup</a>
+                <a href="/login">Login</a>
+            <?php } ?>
         </div>
     </nav>
     <h1 style="text-align:center">Clients</h1>
@@ -68,14 +79,24 @@ $userResult = mysqli_query($conn, $userSql);
                                         </div>
                                         <div class="content-key"><?php echo $desc ?></div>
                                     </div>
-                            <?php }
-                            } ?>
+                                <?php }
+                            } else { ?>
+                                <div class="clientcontainer">
+                                    <p>
+                                        No laundry data found 😅.
+                                    </p>
+                                    <p>
+                                        The data will be visible to you once clients start their laundry services.
+                                    </p>
+                                </div>
+                            <?php } ?>
                             <!--  -->
                             <!--  -->
                         </div>
                     </div>
                 </div>
             </div>
+            <br />
         <?php }
     } else { ?>
         <div class="clientcontainer">

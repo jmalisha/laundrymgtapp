@@ -1,4 +1,4 @@
-<?php include_once("./header.php") ?>
+<?php require("./header.php") ?>
 <div class="form-container">
     <div class="form-wrap">
         <h2>Login</h2>
