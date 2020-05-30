@@ -1,5 +1,8 @@
-<?php require('./header.php'); ?>
-<?php
+<?php require('./header.php');
+if (!isset($_SESSION['adminID'])) {
+    header("Location: login.php");
+    die();
+}
 require_once('../connection.php');
 $sql = "SELECT client.username, client.phone, client.email, client.laundrycompleted, laundry.date, laundry.laundrystatus, laundry.description FROM `laundry` INNER JOIN client ON laundry.clientID = client.clientID ORDER BY laundry.date DESC";
 $result = mysqli_query($conn, $sql);

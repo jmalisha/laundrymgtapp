@@ -1,5 +1,9 @@
 <?php
 session_start();
+if (!isset($_SESSION['adminID'])) {
+    header("Location: login.php");
+    die();
+}
 require_once('../connection.php');
 // select data from db
 $userSql = "SELECT client.clientID, client.laundrycompleted, client.username, client.phone, client.email from client";

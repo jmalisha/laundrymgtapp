@@ -1,4 +1,8 @@
 <?php require('./header.php');
+if (!isset($_SESSION['adminID'])) {
+    header("Location: login.php");
+    die();
+}
 // db connection
 require('../connection.php');
 
