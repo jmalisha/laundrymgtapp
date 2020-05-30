@@ -6,7 +6,7 @@ if (!isset($_SESSION['adminID'])) {
 }
 require_once('../connection.php');
 // select data from db
-$userSql = "SELECT client.clientID, client.laundrycompleted, client.username, client.phone, client.email from client";
+$userSql = "SELECT client.clientID, client.laundrycompleted, client.username, client.phone, client.email from client ORDER BY client.username ASC";
 $userResult = mysqli_query($conn, $userSql);
 
 ?>
