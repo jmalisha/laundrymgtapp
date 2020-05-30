@@ -113,7 +113,7 @@
   margin: 5px;
 }
 .container .contact-info .form input,
-textarea {
+#ltextarea {
   border: none;
   min-width: 400px;
   padding: 12px 18px;

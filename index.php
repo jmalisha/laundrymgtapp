@@ -31,7 +31,7 @@
             <div class="form">
                 <h2>Contact Us</h2>
                 <form action="mailto:joycemalisha22@gmail.com" method="get" enctype="text/plain">
-                    <textarea rows="3" placeholder="message"></textarea>
+                    <textarea id="ltextarea" rows="3" placeholder="message"></textarea>
                     <button type="submit">Send</button>
                 </form>
             </div>

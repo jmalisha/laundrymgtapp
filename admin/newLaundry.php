@@ -10,26 +10,34 @@ if (isset($_SESSION['adminID'])) {
     $adminID = $_SESSION['adminID'];
 }
 ?>
-<form class="form newLaundry" method="POST" action="includes/new.inc.php">
-    <select placeholder="client Name" name="clientID">
-        <?php
-        if (mysqli_num_rows($usersResult) > 0) {
-            while ($row = mysqli_fetch_assoc($usersResult)) {
-                $username = $row['username'];
-                $clientID = $row['clientID'];
-        ?>
-                <option value=<?php echo $clientID; ?>><?php echo $username; ?></option>
-        <?php }
-        } ?>
-    </select>
-    <select placeholder="laundry status" name="laundryStatus">
-        <option value="complete">complete</option>
-        <option value="in progress">in progress</option>
-    </select>
-    <textarea placeholder="description" name="description"></textarea>
-    <input type="text" name="adminID" value="<?php echo $adminID; ?>" />
-    <button type="submit" name="new_laundry_submit"> Sign in </button>
-    <a href="/LaundryMgtApp/admin/register.php">
-        <p> Don't have an account? Register </p>
-    </a>
-</form>
+<div class="form-container">
+    <div class="form-wrap">
+        <h2>NEW LAUNDRY</h2>
+        <form class="form" method="POST" action="includes/new.inc.php">
+            <label for="clientID">Client Name</label>
+            <select placeholder="client Name" name="clientID">
+                <?php
+                if (mysqli_num_rows($usersResult) > 0) {
+                    while ($row = mysqli_fetch_assoc($usersResult)) {
+                        $username = $row['username'];
+                        $clientID = $row['clientID'];
+                ?>
+                        <option value=<?php echo $clientID; ?>><?php echo $username; ?></option>
+                <?php }
+                } ?>
+            </select>
+            <label for="laundryStatus">Laundry status</label>
+            <select placeholder="laundry status" name="laundryStatus">
+                <option value="complete">complete</option>
+                <option value="in progress">in progress</option>
+            </select>
+            <label for="desciption">Laundry description</label>
+            <textarea id="textarea" placeholder="description" name="description" rows="12" cols="1"></textarea>
+            <input type="text" name="adminID" value="<?php echo $adminID; ?>" style="display:none" />
+            <button type="submit" name="new_laundry_submit"> Sign in </button>
+            <a href="/LaundryMgtApp/admin/register.php">
+                <p> Don't have an account? Register </p>
+            </a>
+        </form>
+    </div>
+</div>

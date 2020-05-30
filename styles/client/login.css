@@ -32,6 +32,18 @@ body {
 .form-wrap .form {
   padding-top: 20px;
 }
+select,
+#textarea {
+  border: none;
+  width: 100%;
+  padding: 10px 14px;
+  font-size: 1rem;
+  margin: 10px 0px;
+}
+label {
+  color: gray;
+  padding: 10px;
+}
 .form-wrap .form input,
 .form-wrap .form button {
   width: 80%;
