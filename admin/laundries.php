@@ -1,7 +1,7 @@
 <?php require('./header.php'); ?>
 <?php
 require_once('../connection.php');
-$sql = "SELECT client.username, client.phone, client.email, client.laundrycompleted, laundry.date, laundry.laundrystatus, laundry.description FROM `laundry` INNER JOIN client ON client.clientID = laundry.laundryID";
+$sql = "SELECT client.username, client.phone, client.email, client.laundrycompleted, laundry.date, laundry.laundrystatus, laundry.description FROM `laundry` INNER JOIN client ON laundry.clientID = client.clientID ORDER BY laundry.date DESC";
 $result = mysqli_query($conn, $sql);
 ?>
 <div class="container">

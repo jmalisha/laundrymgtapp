@@ -3,7 +3,7 @@ require('./header.php');
 require_once('../connection.php');
 
 // select all laundry data for the client
-$laundrySql = "SELECT laundry.date, laundry.laundrystatus, laundry.description,client.laundrycompleted, admin.adminName, admin.phone FROM ((`laundry` INNER JOIN client ON laundry.clientID = client.clientID) INNER JOIN admin ON laundry.adminID = admin.adminID) WHERE client.clientID =" . $_SESSION['clientID'];
+$laundrySql = "SELECT laundry.date, laundry.laundrystatus, laundry.description,client.laundrycompleted, admin.adminName, admin.phone FROM ((`laundry` INNER JOIN client ON laundry.clientID = client.clientID) INNER JOIN admin ON laundry.adminID = admin.adminID) WHERE client.clientID =" . $_SESSION['clientID'] . " ORDER BY laundry.date DESC";
 $laundryResult = mysqli_query($conn, $laundrySql);
 ?>
 <!--  -->
