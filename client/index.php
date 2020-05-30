@@ -1,5 +1,9 @@
 <?php
 require('./header.php');
+if (!isset($_SESSION['clientID'])) {
+    header("Location: login.php");
+    die();
+}
 require_once('../connection.php');
 
 // select all laundry data for the client
