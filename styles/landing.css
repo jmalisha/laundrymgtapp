@@ -64,12 +64,21 @@
   border: none;
   background: none;
   text-decoration: none;
-  font-size: 1.1em;
+  font-size: inherit;
   font-weight: bolder;
-  padding: 8px 50px;
-  color: white;
+  margin: 0px 0px 0px 20px;
+  padding: 4px 10px;
+  border: 1px solid white;
+  border-radius: 5px;
+  background-color: #ffffff;
+  color: #fe8a39;
   transition: 0.2s;
   cursor: pointer;
+}
+
+#logoutForm button:hover {
+  background-color: #fe8a39;
+  color: #ffffff;
 }
 .landing button:first-child a {
   border: 0.5px solid white;

@@ -29,9 +29,10 @@ $userResult = mysqli_query($conn, $userSql);
     <nav>
         <a href="/LaundryMgtApp">ADMIN</a>
         <div>
-            <a href="/LaundryMgtApp/admin/laundries.php">Laundries</a>
-            <a href="/LaundryMgtApp/admin/clients.php">Clients</a>
             <?php if (isset($_SESSION['adminID'])) { ?>
+                <a href="/LaundryMgtApp/admin/laundries.php">Laundries</a>
+                <a href="/LaundryMgtApp/admin/clients.php">Clients</a>
+                <a href="/LaundryMgtApp/admin/newLaundry.php" id="newLaundry"><span>&plus;</span> New Laundry</a>
                 <form id="logoutForm" method="post" action="includes/logout.inc.php">
                     <button id="logoutbtn" type="submit" name="logout-submit">logout</a>
                 </form>

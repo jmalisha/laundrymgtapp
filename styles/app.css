@@ -48,6 +48,20 @@ nav a {
   margin-left: 20px;
   font-weight: bold;
 }
+nav a:active {
+  border-bottom: 2px solid #ffffff;
+}
+nav #newLaundry {
+  background-color: white;
+  color: #fe8a39;
+  border-radius: 5px;
+  border: 1px solid #ffffff;
+  padding: 4px 20px;
+}
+nav #newLaundry:hover {
+  background-color: #fe8a39;
+  color: white;
+}
 nav div {
   display: flex;
   justify-content: center;
