@@ -12,6 +12,10 @@
                 echo '<p class="authError">Invalid email!</p>';
             } else if ($_GET['error'] == 'invaliduid') {
                 echo '<p class="authError">Invalid username!</p>';
+            } else if ($_GET['error'] == 'numberonly') {
+                echo '<p class="authError">on the Phone,Number Only!</p>';
+            } else if ($_GET['error'] == 'passwordweak') {
+                echo '<p class="authError">Password weak!</p>';
             } else if ($_GET['error'] == 'passwordcheck') {
                 echo '<p class="authError">Your passwords do not match!</p>';
             } else if ($_GET['error'] == 'usertaken') {

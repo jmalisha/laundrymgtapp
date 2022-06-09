@@ -17,9 +17,7 @@
             <input type="text" placeholder="Username" name="adminName" />
             <input type="password" placeholder="Password" name="password" />
             <button type="submit" name="login_submit"> Sign in </button>
-            <a href="/LaundryMgtApp/admin/register.php">
-                <p> Don't have an account? Register </p>
-            </a>
+
         </form>
     </div>
 </div>

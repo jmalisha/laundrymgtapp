@@ -30,6 +30,16 @@ if (isset($_POST['signup_submit'])) {
         header("Location: ../register.php?error=invaliduid&mail=" . $email);
         exit();
     }
+    // Phone number validation
+    else if (!preg_match("/^[0-9]*$/", $phone)) {
+        header('Location:../register.php?error=numberrequired');
+        exit();
+    }
+    // check password requirement
+    else if (!preg_match("/^\S{8,}$/i", $password)) {
+        header('Location:../register.php?error=passwordweak');
+        exit();
+    }
     // check if password and password repeat match
     else if ($password !== $rpassword) {
         header('Location: ../register.php?error=passwordcheck&uid=' . $adminName . "&mail=" . $email);
@@ -60,7 +70,7 @@ if (isset($_POST['signup_submit'])) {
                     $hashedPwd = password_hash($password, PASSWORD_DEFAULT);
                     mysqli_stmt_bind_param($stmt, 'ssss', $adminName, $email, $phone, $hashedPwd);
                     mysqli_stmt_execute($stmt);
-                    header('Location:../login.php?register=success');
+                    header('Location:../admin.php?register=success');
                     exit();
                 }
             }

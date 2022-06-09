@@ -11,7 +11,11 @@
             } else if ($_GET['error'] == 'invalidmail') {
                 echo '<p class="authError">Invalid email!</p>';
             } else if ($_GET['error'] == 'invaliduid') {
-                echo '<p class="authError">Invalid username!</p>';
+                echo '<p class="authError">Invalid sername!</p>';
+            } else if ($_GET['error'] == 'numberonly') {
+                echo '<p class="authError">Phone Numbers!</p>';
+            } else if ($_GET['error'] == 'passwordweak') {
+                echo '<p class="authError">Password weak!</p>';
             } else if ($_GET['error'] == 'passwordcheck') {
                 echo '<p class="authError">Your passwords do not match!</p>';
             } else if ($_GET['error'] == 'usertaken') {
@@ -26,9 +30,6 @@
             <input type="password" placeholder="Password" name="password" />
             <input type="password" placeholder="Repeat Password" name="rpassword" />
             <button type="submit" name="signup_submit"> Sign Up </button>
-            <a href="/LaundryMgtApp/admin/login.php">
-                <p> Already Registered? Login </p>
-            </a>
         </form>
     </div>
 </div>

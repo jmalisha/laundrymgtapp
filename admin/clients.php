@@ -21,6 +21,7 @@ $userResult = mysqli_query($conn, $userSql);
     <link rel="stylesheet" type="text/css" href="../styles/landing.css" />
     <link rel="stylesheet" type="text/css" href="../styles/client/login.css" />
     <link rel="stylesheet" type="text/css" href="../styles/client/client.css" />
+
     <link rel="stylesheet" type="text/css" href="../styles/admin/navbar.css" />
     <link rel="stylesheet" type="text/css" href="../styles/admin/client.css" />
 </head>
@@ -33,6 +34,11 @@ $userResult = mysqli_query($conn, $userSql);
                 <a href="/LaundryMgtApp/admin/laundries.php">Laundries</a>
                 <a href="/LaundryMgtApp/admin/clients.php">Clients</a>
                 <a href="/LaundryMgtApp/admin/newLaundry.php" id="newLaundry"><span>&plus;</span> New Laundry</a>
+                <a href="/LaundryMgtApp/admin/AddPricelist.php">Add Price List</a>
+
+                <a href="/LaundryMgtApp/admin/payment.php">payments</a>
+                <a href="/LaundryMgtApp/admin/report.php">Reports</a>
+                <a href="/LaundryMgtApp/admin/admin.php">Manage Admin</a>
                 <form id="logoutForm" method="post" action="includes/logout.inc.php">
                     <button id="logoutbtn" type="submit" name="logout-submit">logout</a>
                 </form>

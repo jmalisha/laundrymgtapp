@@ -17,8 +17,12 @@
             <input type="text" placeholder="Username or email" name="username" />
             <input type="password" placeholder="Password" name="password" />
             <button type="submit" name="login_submit"> Sign in </button>
+
             <a href="/LaundryMgtApp/client/register.php">
                 <p> Don't have an account? Register </p>
+            </a>
+            <a href="/LaundryMgtApp/client/resetpass.php">
+                <p>Forgot password</p>
             </a>
         </form>
     </div>

@@ -15,7 +15,7 @@ if (isset($_POST['new_laundry_submit'])) {
         exit();
     } else {
         // insert new laundry data to db
-        $sql = "INSERT INTO laundry (laundrystatus, clientID, adminID, description) VALUES (?,?,?,?)";
+        $sql = "INSERT INTO laundry (laundryStatus, clientID, adminID, description) VALUES (?,?,?,?)";
         $stmt = mysqli_stmt_init($conn);
         if (!mysqli_stmt_prepare($stmt, $sql)) {
             header('Location:../newLaundry.php?error=sqlerror');
@@ -23,7 +23,7 @@ if (isset($_POST['new_laundry_submit'])) {
         } else {
             mysqli_stmt_bind_param($stmt, 'ssss', $laundryStatus, $clientID, $adminID, $description);
             mysqli_stmt_execute($stmt);
-            header('Location:../laundries.php?newLaundry=success');
+            header('Location:../laundry_listing.php?newLaundry=success');
             exit();
         }
         mysqli_stmt_close($stmt);

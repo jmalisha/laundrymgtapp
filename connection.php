@@ -1,8 +1,8 @@
 <!-- connect to database -->
 <?php
 $host = 'localhost';
-$username = 'username';
-$password = 'password';
+$username = 'root';
+$password = '';
 $db = 'laundrydb';
 
 $conn = mysqli_connect($host, $username, $password, $db);

@@ -1,55 +1,68 @@
 <?php
-require('./header.php');
+require("./header.php");
 if (!isset($_SESSION['clientID'])) {
     header("Location: login.php");
     die();
-}
-require_once('../connection.php');
 
-// select all laundry data for the client
-$laundrySql = "SELECT laundry.date, laundry.laundrystatus, laundry.description,client.laundrycompleted, admin.adminName, admin.phone FROM ((`laundry` INNER JOIN client ON laundry.clientID = client.clientID) INNER JOIN admin ON laundry.adminID = admin.adminID) WHERE client.clientID =" . $_SESSION['clientID'] . " ORDER BY laundry.date DESC";
-$laundryResult = mysqli_query($conn, $laundrySql);
+
+    require_once('../connection.php');
+}
 ?>
-<!--  -->
-<!--  -->
-<?php
-if (mysqli_num_rows($laundryResult) > 0) {
-    while ($row = mysqli_fetch_assoc($laundryResult)) {
-        $laundryDate =  $row['date'];
-        $laundryStatus =  $row['laundrystatus'];
-        $desc =  $row['description'];
-        $laundryCompleted =  $row['laundrycompleted'];
-        $adminName =  $row['adminName'];
-        $adminPhone =  $row['phone'];
-?>
-        <div class="wrapper">
-            <div class="wrapper-item">
-                <div class="item-img">
-                    <div class="content">
-                        <h2 class="content-title" style="color: white">Laundries Completed : <?php echo $laundryCompleted ?></h2>
-                        <p class="content-date" style="color: white">Served By : <?php echo $adminName ?></p>
-                        <p class="content-date" style="color: white">Phone no. : 0<?php echo $adminPhone ?></p>
-                    </div>
-                </div>
-                <div class="content-wrapper">
-                    <span class="content-date">Laundry done on <?php echo $laundryDate ?></span>
-                    <div class="content-title"><?php echo $laundryStatus ?></div>
-                    <div class="content-text"> <?php echo $desc ?> </div>
-                </div>
-            </div>
+<div>
+    <div>
+        <h2 class="pagetitle">List of Laundries</h2>
+
+
+        <div class="table-area">
+            <?php
+
+            $mysqli = new mysqli("localhost", "root", "", "laundrydb");
+
+            if ($mysqli === false) {
+                die("ERROR: Could not connect. " . $mysqli->connect_error);
+            }
+
+            $sql = "SELECT laundry.laundryID, laundry.date, laundry.laundrystatus, laundry.description, client.laundrycompleted, client.username, admin.adminName, admin.phone FROM ((`laundry` INNER JOIN client ON laundry.clientID = client.clientID) INNER JOIN admin ON laundry.adminID = admin.adminID INNER JOIN laundryitem ON laundry.laundryID = laundryitem.laundryID) WHERE client.clientID =" . $_SESSION['clientID'] . " ORDER BY laundry.date DESC";
+
+            if ($result = $mysqli->query($sql)) {
+                if ($result->num_rows > 0) {
+                    echo "<table class='admin-table'>";
+                    echo "<tr>";
+                    echo "<th class='table-head'>ID</th>";
+                    echo "<th class='table-head'>Client</th>";
+                    echo "<th class='table-head'>Description</th>";
+                    echo "<th class='table-head'>Status</th>";
+                    echo "<th class='table-head'>Date</th>";
+                    echo "<th class='table-head'>Action</th>";
+
+                    echo "</tr>";
+                    while ($row = $result->fetch_array()) {
+                        echo "<tr>";
+                        echo "<td class='table-head'>" . $row['laundryID'] . "</td>";
+                        echo "<td class='table-head'>" . $row['username'] . "</td>";
+                        echo "<td class='table-head'>" . $row['description'] . "</td>";
+                        echo "<td class='table-head'>" . $row['laundrystatus'] . "</td>";
+                        echo "<td class='table-head'>" . $row['date'] . "</td>";
+                        echo "<td class='table-head'><a href='/LaundryMgtApp/client/invoice_detail.php?id={$row['laundryID']}'>
+            <button class='detailbutton'>View details</button> 
+          </a></td>";
+
+
+
+                        echo "</tr>";
+                    }
+                    echo "</table>";
+                    // Free result set
+                    $result->free();
+                } else {
+                    echo "No records matching your query were found.";
+                }
+            } else {
+                echo "ERROR: Could not able to execute $sql. " . $mysqli->error;
+            }
+
+            ?>
+
         </div>
-        <br />
-    <?php
-    }
-} else { ?>
-    <div class="clientcontainer">
-        <p>
-            No Laundry data found 😅.
-        </p>
-        <p>
-            The laundry data will be visible to you once you start your laundry service
-            with us
-        </p>
-    </div>
-<?php } ?>
-<?php include('./footer.php') ?>
+
+        <?php include_once("./footer.php") ?>

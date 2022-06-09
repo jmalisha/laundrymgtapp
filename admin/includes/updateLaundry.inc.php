@@ -16,6 +16,6 @@ if (isset($_POST['status_submit'])) {
         echo "sql error" . mysqli_error($conn);;
     }
 } else {
-    header('Location:../laundries.php');
+    header('Location:../laundry_listing.php');
     exit();
 }

@@ -3,10 +3,14 @@ if (!isset($_SESSION['adminID'])) {
     header("Location: login.php");
     die();
 }
-require_once('../connection.php');
+require('../connection.php');
+
 $sql = "SELECT laundry.clientID, laundry.laundryID, client.username, client.phone, client.email, client.laundrycompleted, laundry.date, laundry.laundrystatus, laundry.description FROM `laundry` INNER JOIN client ON laundry.clientID = client.clientID ORDER BY laundry.date DESC";
 $result = mysqli_query($conn, $sql);
+
+
 ?>
+
 <div class="container">
     <h1 style="text-align:center">Laundries</h1>
     <br />
@@ -22,6 +26,7 @@ $result = mysqli_query($conn, $sql);
             $laundryDate =  $row['date'];
             $laundryStatus = $row['laundrystatus'];
             $desc =  $row['description'];
+
     ?>
             <div class="wrapper">
                 <div class="wrapper-item">
@@ -31,6 +36,8 @@ $result = mysqli_query($conn, $sql);
                             <p class="content-date" style="color: white">Phone : 0<?php echo $clientPhone ?></p>
                             <p class="content-date" style="color: white">email :<?php echo $clientEmail ?></p>
                             <p class="content-date" style="color: white">laundries completed : <?php echo $laundryCompleted ?></p>
+
+                            </p>
                         </div>
                     </div>
                     <div class="content-wrapper">
@@ -63,4 +70,5 @@ $result = mysqli_query($conn, $sql);
     <?php } ?>
 
 </div>
+
 <?php include_once('./footer.php') ?>

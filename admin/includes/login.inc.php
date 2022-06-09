@@ -29,7 +29,7 @@ if (isset($_GET['login_submit'])) {
                 } else if ($pwdCheck == true) {
                     session_start();
                     $_SESSION['adminID'] = $row['adminID'];
-                    header('Location:../laundries.php?login=success');
+                    header('Location:../laundry_listing.php?login=success');
                     exit();
                 } else {
                     header('Location:../login.php?error=wrongpassword');

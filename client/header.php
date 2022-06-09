@@ -19,12 +19,13 @@
         <a href="/LaundryMgtApp">LaundryMgtApp</a>
         <div>
             <?php if (isset($_SESSION['clientID'])) { ?>
+                <a href="pricelist.php">Price List</a>
                 <form id="logoutForm" method="post" action="includes/logout.inc.php">
                     <button id="logoutbtn" type="submit" name="logout-submit">logout</a>
                 </form>
             <?php } else { ?>
-                <a href="/register">Signup</a>
-                <a href="/login">Login</a>
+                <a href="/laundrymgtapp/client/register.php">Signup</a>
+                <a href="/laundrymgtapp/client/login.php">Login</a>
             <?php } ?>
         </div>
     </nav>

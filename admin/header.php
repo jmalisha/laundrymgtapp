@@ -16,18 +16,22 @@
 
 <body>
     <nav>
-        <a href="/LaundryMgtApp">ADMIN</a>
+        <a href="">ADMIN</a>
         <div>
             <?php if (isset($_SESSION['adminID'])) { ?>
-                <a href="/LaundryMgtApp/admin/laundries.php">Laundries</a>
+                <a href="/LaundryMgtApp/admin/laundry_listing.php">Laundry List</a>
                 <a href="/LaundryMgtApp/admin/clients.php">Clients</a>
                 <a href="/LaundryMgtApp/admin/newLaundry.php" id="newLaundry"><span>&plus;</span> New Laundry</a>
+                <a href="/LaundryMgtApp/admin/price_settings.php">Price Settings</a>
+                <a href="/LaundryMgtApp/admin/payment.php">payments</a>
+                <a href="/LaundryMgtApp/admin/report.php">Reports</a>
+                <a href="/LaundryMgtApp/admin/admin.php">Manage Admin</a>
                 <form id="logoutForm" method="post" action="includes/logout.inc.php">
                     <button id="logoutbtn" type="submit" name="logout-submit">logout</a>
                 </form>
             <?php } else { ?>
-                <a href="/register">Signup</a>
-                <a href="/login">Login</a>
+
+                <a href="/LaundryMgtApp">Client's portal</a>
             <?php } ?>
         </div>
     </nav>
